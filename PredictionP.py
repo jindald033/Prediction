@@ -18,7 +18,7 @@ st.write(df)
 
 
 # Create interactive candlestick chart
-fig = go.Figure(data=[go.Candlestick(x=data['Date'],
+fig = go.Figure(data=[go.Candlestick(x=data['Datetime'],
                                      open=data['Open'],
                                      high=data['High'],
                                      low=data['Low'],
