@@ -58,7 +58,12 @@ score=learner.score(X_test,Y_test)#testing the linear regression model
 forecast= learner.predict(X_lately) #set that will contain the forecasted data
 response={}#creting json object
 response['test_score']=score
-response['forecast_set']=forecast
 fr = pd.DataFrame(forecast)
+last_date = data['Date'].iloc[-1]
+prediction_dates = [last_date + datetime.timedelta(days=i) for i in range(1, forecast_out + 1)]
+forecast_df = pd.DataFrame({'Date': prediction_dates, 'Forecast': forecast})
+st.write(forecast_df)
+st.write(response)
+
 st.write(fr)
 st.write(response)
